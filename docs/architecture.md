@@ -1,6 +1,6 @@
 # NEXA LAB — Arquitetura
 
-> **F0-02** · Versão 1.0 · 16/10/2026 · Responsável técnico: Iago
+> **F0-02** · Versão 1.1 · 17/10/2026 (DEC-08, DEC-09 e DEC-10 aprovadas) · Responsável técnico: Iago
 > Base normativa: `docs/SPEC.md` (§0, §2, §3, §4). Modelo de dados: `docs/data-dictionary.md`.
 > Levantamentos DEC-08, DEC-09 e DEC-10: `docs/research/F0-02-levantamento-fontes.md`.
 
@@ -33,7 +33,7 @@ flowchart TB
     MD[Bases de market share licenciadas]
   end
 
-  subgraph WORKER[Worker Python 3.12 - hospedagem DEC-10]
+  subgraph WORKER[Worker Python 3.12 - Cloud Run Jobs SP - DEC-10]
     Q[Consumidor de job_queue]
     COL[collectors/ httpx · selectolax · extruct · Playwright]
     NOR[normalizers/]
@@ -167,7 +167,7 @@ Detalhamento completo em `docs/data-dictionary.md` (gerado das migrations).
 ```mermaid
 flowchart LR
   DEV[Repositório GitHub] -->|migrations via Supabase CLI| SB[(Supabase: Postgres + Storage + pg_cron)]
-  DEV -->|imagem do worker| WK[Worker - DEC-10 pendente]
+  DEV -->|imagem do worker| WK[Worker - Cloud Run Jobs southamerica-east1]
   DEV -->|deploy| WEBH[apps/web - hospedagem a definir]
   SB <-->|service_role, rede privada/TLS| WK
   WEBH <-->|sessão do usuário + RLS| SB
@@ -180,7 +180,7 @@ flowchart LR
 | Banco, Storage, agendamento | Supabase (Postgres 15+, `pgvector`, `pg_cron`) | DEC-01 aprovada |
 | Fila | `ops.job_queue` + worker Python | DEC-03 aprovada |
 | Disparo de jobs | `pg_cron` enfileira; worker consome | Adotado (decisão complementar DC-17) |
-| Worker (coleta + normalização + Conselho + finanças) | Container Python 3.12 com Chromium | **DEC-10: aguardando confirmação** |
+| Worker (coleta + normalização + Conselho + finanças) | Container Python 3.12 com Chromium em Google Cloud Run Jobs (`southamerica-east1`) | DEC-10 aprovada em 17/10/2026 |
 | Interface | Next.js + Supabase Auth | DEC-04 aprovada; hospedagem a definir (ver §9) |
 | LLM | `llm_gateway` com adapters | DEC-05/06 aprovadas; benchmark na Fase 1 |
 | Embeddings | `pgvector` habilitado, sem coluna | **DEC-07: benchmark na Fase 1** |
@@ -245,6 +245,7 @@ Registradas a partir das lacunas levantadas em F0-03/F0-04 e **validadas por Iag
 | DC-16 | Pesos dos índices e limiares de tendência | Descrições qualitativas; calibração na Fase 1 (Q-17). |
 | DC-17 | Agendamento | `pg_cron` habilitado para enfileirar; nenhum job criado até o worker existir. GitHub Actions não executa coleta (ver levantamento DEC-10). |
 | DC-18 | Taxonomias F0-03 | v1.0 vigente (categoria, subcategoria, formato, benefício, voz do consumidor, frases-sinal, tendência). |
+| DC-19 | Categoria piloto do Módulo C (F1-15) | Proteção solar facial × canal farmácia. Aprovada em 17/10/2026. |
 
 ---
 
@@ -252,9 +253,9 @@ Registradas a partir das lacunas levantadas em F0-03/F0-04 e **validadas por Iag
 
 | ID | Pendência | Dependência |
 |---|---|---|
-| P-01 | Escolha das fontes sociais do MVP | DEC-08 — confirmação de Iago |
-| P-02 | Fonte de market share para a categoria piloto (F1-15) | DEC-09 — confirmação + orçamento (Q-18) |
-| P-03 | Provedor do worker | DEC-10 — confirmação |
+| P-01 | Cotação de provedor licenciado de social listening (TikTok/Instagram/Facebook) | DEC-08 (Fase 2) + Q-18 |
+| P-02 | Cotação do recorte IQVIA para o piloto F1-15 | DEC-09 + Q-18 |
+| P-03 | Candidatura à API alpha do Google Trends | DEC-08 |
 | P-04 | Hospedagem do `apps/web` (Next.js) | Não coberta por DEC-01 a DEC-10 |
 | P-05 | Região do projeto Supabase | Recomendação: `sa-east-1` (São Paulo), alinhada ao worker |
 | P-06 | Perfis de usuário e policies RLS | Q-19 |

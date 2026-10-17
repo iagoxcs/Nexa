@@ -1,6 +1,6 @@
 # F0-02 — Levantamento: fontes sociais (DEC-08), market share (DEC-09) e hospedagem do worker (DEC-10)
 
-> Data do levantamento: 16/10/2026 · Status: **opções apresentadas, aguardando confirmação de Iago. Nada implementado.**
+> Data do levantamento: 16/10/2026 · Status: **recomendações 1 a 4 aprovadas por Iago em 17/10/2026** (DEC-08 opção A, DEC-09 opção B, DEC-10 opção B, piloto proteção solar facial × farmácia). Orçamento (item 5, Q-18) pendente.
 >
 > **Grau de confiança das informações:** termos e preços de plataformas mudam com frequência e vários fornecedores não publicam preço. Cada item indica a qualidade da fonte:
 > **[O]** documentação oficial · **[S]** fonte secundária (blog, imprensa, comparativo de concorrente) · **[C]** depende de cotação comercial.
@@ -112,13 +112,13 @@ Categoria piloto sugerida: **proteção solar facial no canal farmácia** (a mar
 
 ## 4. Decisões solicitadas
 
-| # | Decisão | Opções | Recomendação |
-|---|---|---|---|
-| 1 | DEC-08 — fontes sociais do MVP | A · B · C | **A**, com cotação da C em paralelo |
-| 2 | DEC-09 — market share do piloto F1-15 | A · B · C | **B**, com cotação da A em paralelo |
-| 3 | DEC-10 — worker | A · B · C · D | **B** (Cloud Run Jobs, São Paulo) |
-| 4 | Categoria piloto do F1-15 | Proteção solar facial × farmácia (sugerida) ou outra | Proteção solar facial × farmácia |
-| 5 | Orçamento mensal (Q-18) | Teto em R$ para dados, infraestrutura e modelos | Necessário para decidir as cotações |
+| # | Decisão | Opções | Recomendação | Decisão |
+|---|---|---|---|---|
+| 1 | DEC-08 — fontes sociais do MVP | A · B · C | **A**, com cotação da C em paralelo | Aprovada 17/10/2026 |
+| 2 | DEC-09 — market share do piloto F1-15 | A · B · C | **B**, com cotação da A em paralelo | Aprovada 17/10/2026 |
+| 3 | DEC-10 — worker | A · B · C · D | **B** (Cloud Run Jobs, São Paulo) | Aprovada 17/10/2026 |
+| 4 | Categoria piloto do F1-15 | Proteção solar facial × farmácia (sugerida) ou outra | Proteção solar facial × farmácia | Aprovada 17/10/2026 |
+| 5 | Orçamento mensal (Q-18) | Teto em R$ para dados, infraestrutura e modelos | Necessário para decidir as cotações | Pendente |
 
 ---
 
