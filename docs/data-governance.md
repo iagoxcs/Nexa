@@ -1,7 +1,7 @@
 # NEXA LAB — Política de retenção, backup e acesso
 
-> **F0-09** · Versão 0.1 (proposta) · 17/10/2026 · Responsável técnico: Iago
-> Status: **proposta para aprovação**. Itens marcados como **[DECIDIR]** dependem de definição de Iago antes da implementação.
+> **F0-09** · Versão 1.0 · 17/10/2026 · Responsável técnico: Iago
+> Status: **aprovada por Iago em 17/10/2026** (decisões D1 a D6, §7). Itens ainda marcados como **[DECIDIR]** dependem de levantamento posterior.
 > Base normativa: SPEC §0 (G-02, G-04, G-09, G-10, C-04, A-06, A-07), `docs/architecture.md` (DC-13, DC-14, DEC-10).
 > Fora de escopo: titularidade de dados, código e credenciais entre as partes (SPEC §2, nota de governança).
 
@@ -41,7 +41,7 @@
 |---|---|---|---|
 | `raw.raw_document` (metadados) | Indefinida | — | Base de auditoria; linha pequena |
 | Arquivo bruto no Storage **referenciado** por `core.evidence` | Enquanto houver evidência ativa | — | P1 (G-02) |
-| Arquivo bruto **não referenciado** e já substituído por versão mais nova da mesma URL | 12 meses **[DECIDIR]** | Excluir o arquivo do Storage; manter a linha com `storage_path` marcado como expurgado | Custo de armazenamento sem perda de rastreabilidade |
+| Arquivo bruto **não referenciado** e já substituído por versão mais nova da mesma URL | 12 meses (D1) | Excluir o arquivo do Storage; manter a linha com `storage_path` marcado como expurgado | Custo de armazenamento sem perda de rastreabilidade |
 | `core.evidence` | Indefinida | — | P1 |
 | Entidades e versões (`brand*`, `product*`, `packaging*`, `price_observation`) | Indefinida | — | P2 (G-04); série histórica é o ativo |
 | `core.consumer_signal` / `signal_classification` | Ver §3.2 (depende da fonte) | Expurgo ou anonimização | P3, P4 |
@@ -57,7 +57,7 @@
 
 | Fonte | Regra de retenção | Status |
 |---|---|---|
-| **YouTube Data API** | As políticas de desenvolvedor do YouTube exigem que dados obtidos pela API sejam atualizados ou excluídos em até 30 dias, com exceções descritas de forma divergente pelas fontes consultadas. Isso conflita com manter texto de comentário como evidência histórica. | **[DECIDIR] antes do F1-07** — ver §3.3 |
+| **YouTube Data API** | As políticas de desenvolvedor do YouTube exigem que dados obtidos pela API sejam atualizados ou excluídos em até 30 dias, com exceções descritas de forma divergente pelas fontes consultadas. Isso conflita com manter texto de comentário como evidência histórica. | **Aprovado (D2):** confirmar termos antes do F1-07; no MVP, ciclo de atualização em até 30 dias — ver §3.3 |
 | **Mercado Livre API** | Termos de retenção não levantados. | **[DECIDIR]** após leitura dos termos da API |
 | **Avaliações JSON-LD em sites oficiais** | Seguem os termos de cada site (revisão F0-07). | Pendente F0-07 |
 | **Google Trends (exportação manual)** | Sem dado pessoal; série relativa. | Retenção indefinida |
@@ -80,7 +80,7 @@ Comentários públicos podem conter nome, @ ou outro dado de terceiro no texto l
 2. Redação do texto em `core.consumer_signal` para `[removido a pedido]`, mantendo o hash e a classificação agregada.
 3. Arquivo bruto correspondente no Storage excluído.
 
-`core.consumer_signal` é imutável por trigger; a redação exige uma função privilegiada dedicada (`ops.redact_consumer_signal`), a criar em migration na Fase 1 **[DECIDIR] prazo de atendimento: proposta de 15 dias**.
+`core.consumer_signal` é imutável por trigger; a redação exige uma função privilegiada dedicada (`ops.redact_consumer_signal`), a criar em migration na Fase 1 prazo de atendimento: **15 dias (D3)**.
 
 ---
 
@@ -90,11 +90,11 @@ Comentários públicos podem conter nome, @ ou outro dado de terceiro no texto l
 
 | Ativo | Mecanismo | Observação |
 |---|---|---|
-| Banco Postgres (Supabase) | Backup diário gerenciado do Supabase. Pro: últimos 7 dias; Team: 14 dias; Enterprise: até 30 dias | Plano do projeto **[DECIDIR]** (depende de Q-18) |
-| Banco — recuperação a um ponto no tempo (PITR) | Add-on pago do Supabase; ao ativar, substitui os backups diários | Recomendado a partir da Fase 2 (coleta agendada); preço a confirmar no painel |
+| Banco Postgres (Supabase) | Backup diário gerenciado do Supabase. Pro: últimos 7 dias; Team: 14 dias; Enterprise: até 30 dias | Plano Pro no MVP (D4); upgrade conforme orçamento (Q-18) |
+| Banco — recuperação a um ponto no tempo (PITR) | Add-on pago do Supabase; ao ativar, substitui os backups diários | A partir da Fase 2 (D4); preço a confirmar no painel |
 | Storage (HTML/JSON bruto, planilhas) | **Não** incluído no backup do banco. Exportação semanal para bucket em outro provedor (ex.: Cloud Storage do projeto GCP do worker, DEC-10) | Sem isso, arquivo excluído no Storage é irrecuperável e a evidência perde o original |
 | Código, migrations, seeds, prompts, configuração | Repositório Git (GitHub) | Já versionado |
-| Dump lógico mensal (`pg_dump`) | Job agendado para o mesmo bucket externo | Independe do provedor do banco; retenção de 12 dumps **[DECIDIR]** |
+| Dump lógico mensal (`pg_dump`) | Job agendado para o mesmo bucket externo | Independe do provedor do banco; retenção de 12 dumps (D5) |
 | Segredos | Gerenciador de segredos do provedor do worker | Não entram em backup de dados; reemissão documentada em runbook |
 
 ### 4.2 Metas propostas
@@ -117,7 +117,7 @@ O teste de restauração valida: contagem de linhas por tabela, abertura de 10 e
 |---|---|---|---|
 | `service_role` | Worker (Cloud Run Jobs), backend do Next.js (somente servidor), scripts de migração | Total; ignora RLS | Implementado (DC-13) |
 | Administrador | Iago | Painéis Supabase, GCP, GitHub, provedores LLM; aprovação de fontes (F0-07) | A configurar |
-| Product owner | Thaís | Leitura de todo o BI; correção de classificação via `ops.human_review` (writeback); sem acesso a `finance` **[DECIDIR]** e a segredos | A configurar (policies RLS) |
+| Product owner | Thaís | Leitura de todo o BI; correção de classificação via `ops.human_review` (writeback); sem acesso a `finance` (D6) e a segredos | A configurar (policies RLS) |
 | Outros usuários | — | — | **Q-19 em aberto** |
 | `anon` | Navegador sem login | Nenhum | Implementado (revoke + RLS) |
 
@@ -140,26 +140,26 @@ O teste de restauração valida: contagem de linhas por tabela, abertura de 10 e
 
 | ID | Item | Fase | Depende de |
 |---|---|---|---|
-| GOV-01 | Job de expurgo: `ops.job_queue` (90 d) e `ops.crawl_log` (18 m, após consolidação) | 1 | Aprovação desta política |
-| GOV-02 | Coluna e job de expurgo de arquivos brutos não referenciados no Storage | 2 | §3.1 [DECIDIR] |
+| GOV-01 | Job de expurgo: `ops.job_queue` (90 d) e `ops.crawl_log` (18 m, após consolidação) | 1 | — |
+| GOV-02 | Coluna e job de expurgo de arquivos brutos não referenciados no Storage (12 meses) | 2 | D1 |
 | GOV-03 | Função `ops.redact_consumer_signal` + procedimento LGPD | 1 | §3.4 |
-| GOV-04 | Ciclo de atualização de 30 dias para dados do YouTube | 1 (antes do F1-07) | §3.3 |
+| GOV-04 | Ciclo de atualização de 30 dias para dados do YouTube + confirmação dos termos | 1 (antes do F1-07) | D2 |
 | GOV-05 | Exportação semanal do Storage e `pg_dump` mensal para bucket externo | 1 | DEC-10 (GCP) |
 | GOV-06 | Policies RLS para administrador e product owner | 1 (F1-09/F1-10) | Q-19 |
 | GOV-07 | Runbook de restauração e primeiro teste | 1 | GOV-05 |
 
 ---
 
-## 7. Decisões solicitadas
+## 7. Decisões (aprovadas em 17/10/2026)
 
-| # | Decisão | Proposta |
+| # | Decisão | Definição |
 |---|---|---|
 | D1 | Retenção de arquivos brutos não referenciados | 12 meses |
-| D2 | Tratamento dos dados do YouTube | Opção C (confirmar termos) operando em A no MVP |
+| D2 | Tratamento dos dados do YouTube | Confirmar termos vigentes antes do F1-07; no MVP, ciclo de atualização em até 30 dias |
 | D3 | Prazo de atendimento a pedido de exclusão | 15 dias |
-| D4 | Plano Supabase e PITR | Pro no MVP; PITR a partir da Fase 2 (depende de Q-18) |
+| D4 | Plano Supabase e PITR | Pro no MVP; PITR a partir da Fase 2 (sujeito a Q-18) |
 | D5 | Retenção de dumps mensais | 12 dumps |
-| D6 | Acesso da Thaís ao schema `finance` | A definir por Iago |
+| D6 | Acesso da Thaís ao schema `finance` | Sem acesso até nova decisão |
 
 ---
 

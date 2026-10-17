@@ -249,6 +249,7 @@ Registradas a partir das lacunas levantadas em F0-03/F0-04 e **validadas por Iag
 | DC-20 | Fenty Beauty × Fenty Skin (§18) | Uma `ops.source` (fentybeauty.com) vinculada às duas marcas via `core.brand_source`. Aprovada em 17/10/2026. |
 | DC-21 | Estado inicial das fontes | `access_method = pending_review`, `review_status = pending`, inativas até aprovação F0-07 (`review_status = approved`). |
 | DC-22 | Primeiro adapter do `llm_gateway` (F0-08) | Anthropic (SDK `anthropic` 1.x). Rotas provisórias até o benchmark DEC-06: extração/classificação `claude-haiku-5-5` (effort low); Conselho `claude-opus-5-5` (effort high, fallback no servidor). `critical_review` sem rota até existir adapter de segundo provedor. |
+| DC-23 | Retenção, backup e acesso (F0-09) | `docs/data-governance.md` v1.0, decisões D1–D6 aprovadas em 17/10/2026 (Thaís sem acesso a `finance`). |
 
 ---
 
@@ -264,4 +265,3 @@ Registradas a partir das lacunas levantadas em F0-03/F0-04 e **validadas por Iag
 | P-06 | Perfis de usuário e policies RLS | Q-19 |
 | P-07 | Orçamento mensal de infraestrutura, APIs e modelos | Q-18 |
 | P-08 | Inventário da base de conhecimento do Conselho | Q-11 |
-| P-09 | Decisões D1–D6 da política de retenção, backup e acesso | `docs/data-governance.md` §7 |
