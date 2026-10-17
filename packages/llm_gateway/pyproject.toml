@@ -1,0 +1,23 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "nexa-llm-gateway"
+version = "0.1.0"
+description = "NEXA LAB — camada única de acesso a LLMs (A-02, DEC-05)"
+requires-python = ">=3.12"
+dependencies = [
+  "pydantic>=2.7,<3",
+]
+
+[project.optional-dependencies]
+anthropic = ["anthropic>=1.15,<2"]
+dev = ["anthropic>=1.15,<2", "pytest>=8"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/llm_gateway"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

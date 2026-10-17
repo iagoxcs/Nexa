@@ -53,8 +53,17 @@ begin
        values ('social_api', 'TikTok', 'https://tiktok.test', 'crawler', now(), true, true)$q$,
     'C-03 fonte social via crawler');
 
-  insert into ops.source (type, name, base_url, access_method, tos_reviewed_at, robots_allowed, active)
-  values ('official_site', 'Marca Teste', 'https://marca.test', 'crawler', now(), true, true)
+  perform pg_temp.expect_error(
+    $q$insert into ops.source (type, name, base_url, access_method, tos_reviewed_at, tos_reviewed_by, robots_allowed, review_status, active)
+       values ('official_site', 'Y', 'https://y.test', 'crawler', now(), 'iago', true, 'preliminary', true)$q$,
+    'C-01 fonte ativa com revisão apenas preliminar');
+  perform pg_temp.expect_error(
+    $q$insert into ops.source (type, name, base_url, tos_reviewed_at, tos_reviewed_by, robots_allowed, review_status, active)
+       values ('official_site', 'Z', 'https://z.test', now(), 'iago', true, 'approved', true)$q$,
+    'C-01 fonte ativa com access_method pending_review');
+
+  insert into ops.source (type, name, base_url, access_method, tos_reviewed_at, tos_reviewed_by, robots_allowed, review_status, active)
+  values ('official_site', 'Marca Teste', 'https://marca.test', 'crawler', now(), 'iago', true, 'approved', true)
   returning id into v_src;
 
   insert into raw.raw_document (source_id, url, fetched_at, last_fetched_at, content_hash, storage_path)

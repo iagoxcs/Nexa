@@ -1,6 +1,6 @@
 -- =============================================================================
 -- NEXA LAB — F0-03 — Taxonomia: voz do consumidor (SPEC §6.2)
--- Códigos definidos na SPEC; descrições e critérios propostos para validação.
+-- Códigos definidos na SPEC; descrições e critérios validados em 16/10/2026.
 -- Um sinal pode receber mais de um tipo (uma linha por tipo em signal_classification).
 -- =============================================================================
 

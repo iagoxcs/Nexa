@@ -2,6 +2,10 @@
 
 Especificação completa: `docs/SPEC.md`. Ler integralmente antes de qualquer tarefa.
 
+Arquitetura e decisões complementares: `docs/architecture.md`.
+
+Retenção, backup e acesso: `docs/data-governance.md` (respeitar a retenção por fonte antes de armazenar dados de consumidor).
+
 Dicionário de dados: `docs/data-dictionary.md` (gerado por `scripts/gen_data_dictionary.py`; não editar à mão).
 
 ## 0. Regras permanentes para o Claude Code
@@ -55,3 +59,6 @@ Estas regras valem para **todo** código, prompt, migração e tela gerados nest
 - Atributos sujeitos a extração/inferência são criados com `ops.add_traceable_field(...)` (padrão §4.1 + `missing_reason` de G-03). Não criar essas colunas manualmente.
 - Taxonomias em `supabase/seed/taxonomies/*.sql`, idempotentes (`on conflict do nothing`). Alterar código (`code`) de taxonomia exige migration de remapeamento.
 - Após alterar migrations: `scripts/validate_migrations.sh` e `python3 scripts/gen_data_dictionary.py`.
+- Lista-mãe: editar `supabase/seed/brands.csv` e regenerar `supabase/seed/brands.sql` com `python3 scripts/gen_brand_seed.py`.
+- Testes Python offline: `python3 -m unittest discover -s tests/python` e `python3 -m unittest discover -s packages/llm_gateway/tests`.
+- Chamadas a LLM: somente via `packages/llm_gateway` (`LLMGateway.complete`). Rotas em `config/llm_routing.toml`, preços em `config/llm_pricing.toml`, prompts em `prompts/` (ver `prompts/README.md`).

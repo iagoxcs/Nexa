@@ -76,9 +76,9 @@ As decisões abaixo foram aprovadas por Iago em 16/10/2026 e são **definitivas 
 | DEC-05 | Camada LLM | `llm_gateway` próprio (ou LiteLLM) com roteamento por tarefa | Exigência A-01/A-02 | Aprovada |
 | DEC-06 | Modelos por tarefa | Extração: modelo de menor custo com JSON mode; Conselho: modelo de maior capacidade; revisão crítica: segundo provedor | Controle de custo + comparação de pareceres | Aprovada (benchmark na Fase 1) |
 | DEC-07 | Embeddings | Modelo de embedding definido por benchmark na Fase 1 | Deduplicação semântica e busca de evidências | Aprovada (modelo definido na Fase 1) |
-| DEC-08 | Fontes sociais | Levantar API/custo/cobertura por plataforma (ver §16, Q-06) | Compliance C-03 | Aprovada (levantamento na Fase 0) |
-| DEC-09 | Fontes de market share/sell-out | Levantar bases licenciáveis no Brasil (ver §16, Q-14) | Módulo C depende disso | Aprovada (levantamento na Fase 0) |
-| DEC-10 | Hospedagem do worker | VPS ou serviço de containers | Playwright exige runtime com browser | Aprovada (provedor a escolher na Fase 0) |
+| DEC-08 | Fontes sociais | MVP: YouTube Data API + API oficial do Mercado Livre (avaliações) + avaliações JSON-LD dos sites liberados na F0-07; Google Trends por exportação manual + candidatura à API alpha. Cotação de provedor licenciado (TikTok/Instagram/Facebook) em paralelo para a Fase 2 | Compliance C-03; levantamento em `docs/research/F0-02-levantamento-fontes.md` | Aprovada em 17/10/2026 |
+| DEC-09 | Fontes de market share/sell-out | Piloto F1-15 (proteção solar facial × farmácia): estimativa documentada com dados públicos (status `estimated`) ou relatório de impossibilidade + plano de aquisição. Cotação de recorte IQVIA em paralelo; compra condicionada ao orçamento (Q-18) | Módulo C; levantamento em `docs/research/F0-02-levantamento-fontes.md` | Aprovada em 17/10/2026 |
+| DEC-10 | Hospedagem do worker | Google Cloud Run Jobs, região `southamerica-east1` (São Paulo). GitHub Actions não executa coleta | Playwright exige runtime com browser; carga em lotes; mesma região do Supabase | Aprovada em 17/10/2026 |
 
 > **Fora do escopo de desenvolvimento:** titularidade de dados, código, prompts, documentação, credenciais e confidencialidade (observação de governança do Adendo v1.1) é tratada entre as partes, fora deste repositório e deste backlog.
 
@@ -622,7 +622,7 @@ Mercados prioritários e comparação Brasil × exterior.
 | Q-03 | Como descobrir novas páginas/produtos e detectar alterações? | §5.2 |
 | Q-04 | Deduplicação e versionamento | §4.4 |
 | Q-05 | Páginas JS, bloqueios e CAPTCHAs sem violar regras | §5.1, C-02 |
-| Q-06 | APIs oficiais/licenciadas por fonte social: custo e cobertura | DEC-08 |
+| Q-06 | APIs oficiais/licenciadas por fonte social: custo e cobertura | **Respondida** — DEC-08 |
 | Q-07 | Banco para relacional + texto + embeddings | **Respondida** — DEC-01 (Supabase + pgvector) |
 | Q-08 | Controle de custo de tokens, navegador e coleta | A-06 |
 | Q-09 | Avaliação de qualidade das extrações por IA | F1-08 |
@@ -630,7 +630,7 @@ Mercados prioritários e comparação Brasil × exterior.
 | Q-11 | Ingestão dos arquivos existentes do NEXA como conhecimento permanente — **quais arquivos e formatos?** | §10.4 |
 | Q-12 | Garantia de citação de registros/fontes pelo Conselho | A-05 |
 | Q-13 | Independência de ChatGPT, Claude ou Gemini | **Respondida** — A-01, A-02, DEC-05 |
-| Q-14 | Bases de sell-out/market share acessíveis/licenciáveis no Brasil, granularidade e custo | DEC-09 |
+| Q-14 | Bases de sell-out/market share acessíveis/licenciáveis no Brasil, granularidade e custo | **Respondida** — DEC-09 (custo das bases licenciadas depende de cotação) |
 | Q-15 | Estimar sem confundir sinais digitais com vendas | §7.3, G-07 |
 | Q-16 | Vincular BI ao cálculo financeiro sem depender de texto livre | §11.3, G-12 |
 | Q-17 | Validação de custos de embalagem, formulação e frete por região; pesos dos índices NEXA | §8, §11 |

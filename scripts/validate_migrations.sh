@@ -35,7 +35,7 @@ for f in "$ROOT"/supabase/migrations/*.sql; do
   psql -d "$TARGET_URL" -qX -v ON_ERROR_STOP=1 -1 -o /dev/null <<<"$sql"
 done
 
-for f in "$ROOT"/supabase/seed/taxonomies/*.sql; do
+for f in "$ROOT"/supabase/seed/taxonomies/*.sql "$ROOT"/supabase/seed/*.sql; do
   echo "seed: $(basename "$f")"
   psql -d "$TARGET_URL" -qX -v ON_ERROR_STOP=1 -1 -f "$f"
 done

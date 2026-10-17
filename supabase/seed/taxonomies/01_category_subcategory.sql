@@ -1,6 +1,6 @@
 -- =============================================================================
--- NEXA LAB — F0-03 — Taxonomia: categoria e subcategoria (PROPOSTA v0.1)
--- Status: proposta para validação da Thaís (product owner).
+-- NEXA LAB — F0-03 — Taxonomia: categoria e subcategoria (v1.0 — validada por Iago em 16/10/2026)
+-- Status: validada por Iago em 16/10/2026. Revisões posteriores via ops.human_review.
 --
 -- Regras de classificação:
 --   R1. Categoria = benefício principal declarado. Ex.: protetor labial com FPS →
