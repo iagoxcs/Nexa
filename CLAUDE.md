@@ -58,4 +58,5 @@ Estas regras valem para **todo** código, prompt, migração e tela gerados nest
 - Taxonomias em `supabase/seed/taxonomies/*.sql`, idempotentes (`on conflict do nothing`). Alterar código (`code`) de taxonomia exige migration de remapeamento.
 - Após alterar migrations: `scripts/validate_migrations.sh` e `python3 scripts/gen_data_dictionary.py`.
 - Lista-mãe: editar `supabase/seed/brands.csv` e regenerar `supabase/seed/brands.sql` com `python3 scripts/gen_brand_seed.py`.
-- Testes Python offline: `python3 -m unittest discover -s tests/python`.
+- Testes Python offline: `python3 -m unittest discover -s tests/python` e `python3 -m unittest discover -s packages/llm_gateway/tests`.
+- Chamadas a LLM: somente via `packages/llm_gateway` (`LLMGateway.complete`). Rotas em `config/llm_routing.toml`, preços em `config/llm_pricing.toml`, prompts em `prompts/` (ver `prompts/README.md`).

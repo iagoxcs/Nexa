@@ -248,6 +248,7 @@ Registradas a partir das lacunas levantadas em F0-03/F0-04 e **validadas por Iag
 | DC-19 | Categoria piloto do Módulo C (F1-15) | Proteção solar facial × canal farmácia. Aprovada em 17/10/2026. |
 | DC-20 | Fenty Beauty × Fenty Skin (§18) | Uma `ops.source` (fentybeauty.com) vinculada às duas marcas via `core.brand_source`. Aprovada em 17/10/2026. |
 | DC-21 | Estado inicial das fontes | `access_method = pending_review`, `review_status = pending`, inativas até aprovação F0-07 (`review_status = approved`). |
+| DC-22 | Primeiro adapter do `llm_gateway` (F0-08) | Anthropic (SDK `anthropic` 1.x). Rotas provisórias até o benchmark DEC-06: extração/classificação `claude-haiku-5-5` (effort low); Conselho `claude-opus-5-5` (effort high, fallback no servidor). `critical_review` sem rota até existir adapter de segundo provedor. |
 
 ---
 

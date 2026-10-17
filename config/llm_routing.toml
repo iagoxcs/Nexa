@@ -1,0 +1,40 @@
+# NEXA LAB — Roteamento de tarefas LLM (DEC-05, DEC-06)
+# Lido por packages/llm_gateway (load_config). Alterar aqui não exige mudança de código.
+#
+# STATUS: provisório até o benchmark da Fase 1 (DEC-06). Os modelos abaixo seguem a
+# diretriz da DEC-06 (extração/classificação: menor custo; Conselho: maior capacidade).
+#
+# Campos:
+#   provider         adapter em packages/llm_gateway/src/llm_gateway/adapters (hoje: anthropic)
+#   model            ID exato do modelo; precisa ter preço em config/llm_pricing.toml
+#   max_tokens       teto da resposta (chamadas não-streaming: até ~16000)
+#   effort           low | medium | high | xhigh | max (profundidade de raciocínio e gasto de tokens)
+#   max_attempts     tentativas quando a saída falha na validação do schema (A-04)
+#   server_fallback  em recusa por política, a API reexecuta em modelo de fallback na mesma chamada
+
+[defaults]
+max_attempts = 3
+
+[tasks.extraction]
+provider = "anthropic"
+model = "claude-haiku-5-5"
+max_tokens = 16000
+effort = "low"
+
+[tasks.classification]
+provider = "anthropic"
+model = "claude-haiku-5-5"
+max_tokens = 4000
+effort = "low"
+
+[tasks.council]
+provider = "anthropic"
+model = "claude-opus-5-5"
+max_tokens = 16000
+effort = "high"
+server_fallback = true
+
+# [tasks.critical_review]
+# DEC-06 exige um segundo provedor para a revisão crítica. Sem adapter OpenAI/Google
+# implementado, a rota fica desativada: chamadas a Task.CRITICAL_REVIEW levantam
+# RouteNotConfiguredError.
