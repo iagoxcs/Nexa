@@ -57,3 +57,5 @@ Estas regras valem para **todo** código, prompt, migração e tela gerados nest
 - Atributos sujeitos a extração/inferência são criados com `ops.add_traceable_field(...)` (padrão §4.1 + `missing_reason` de G-03). Não criar essas colunas manualmente.
 - Taxonomias em `supabase/seed/taxonomies/*.sql`, idempotentes (`on conflict do nothing`). Alterar código (`code`) de taxonomia exige migration de remapeamento.
 - Após alterar migrations: `scripts/validate_migrations.sh` e `python3 scripts/gen_data_dictionary.py`.
+- Lista-mãe: editar `supabase/seed/brands.csv` e regenerar `supabase/seed/brands.sql` com `python3 scripts/gen_brand_seed.py`.
+- Testes Python offline: `python3 -m unittest discover -s tests/python`.

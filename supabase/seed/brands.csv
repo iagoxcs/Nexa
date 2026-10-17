@@ -1,0 +1,103 @@
+master_list_no,priority_level,name,official_url,nexa_focus,site_region,origin_label,source_base_url,access_method
+1,P1-A,Ollie,https://meuollie.com.br,Stick + proteção solar + maquiagem + praticidade,BR,BR,https://meuollie.com.br,pending_review
+2,P1,AURA Beauty,https://aurabeautyclub.com.br,Benchmark: desejo + embalagem + coleção,BR,BR,https://aurabeautyclub.com.br,pending_review
+3,P1,Olera,https://olera.com.br,Benchmark: biotecnologia + defensabilidade,BR,BR,https://olera.com.br,pending_review
+4,P1,ADCOS,https://lojaadcos.com.br,Benchmark: ciência + resolução,BR,BR,https://lojaadcos.com.br,pending_review
+5,P1,Boca Rosa,https://bocarosa.com.br,Benchmark: comunidade + multifuncionalidade,BR,BR,https://bocarosa.com.br,pending_review
+6,P1,Beyoung,https://beyoung.com.br,Skincare híbrido + efeito imediato,BR,BR,https://beyoung.com.br,pending_review
+7,P1,Sallve,https://sallve.com.br,Comunidade + skincare brasileiro,BR,BR,https://sallve.com.br,pending_review
+8,P1,Creamy,https://creamy.com.br,Ativos + ciência acessível,BR,BR,https://creamy.com.br,pending_review
+9,P1,Principia,https://principiaskin.com,Ciência + concentração + preço,BR,BR,https://principiaskin.com,pending_review
+10,P1,Simple Organic,https://simpleorganic.com.br,Skincare + maquiagem + tecnologia,BR,BR,https://simpleorganic.com.br,pending_review
+11,P1,Quintal Dermocosméticos,https://quintaldermocosmeticos.com.br,Natural + ciência + identidade,BR,BR,https://quintaldermocosmeticos.com.br,pending_review
+12,P1,CARE Natural Beauty,https://carenb.com,Maquiagem + skincare,BR,BR,https://carenb.com,pending_review
+13,P1,Pink Cheeks,https://pinkcheeks.com.br,Esporte + suor + proteção + formatos,BR,BR,https://pinkcheeks.com.br,pending_review
+14,P1,Océane,https://oceane.com.br,Tendências + formatos + K-beauty,BR,BR,https://oceane.com.br,pending_review
+15,P1,Bruna Tavares,https://linhabrunatavares.com,Creator brand + inovação,BR,BR,https://linhabrunatavares.com,pending_review
+16,P1,Mantecorp Skincare,https://mantecorpskincare.com.br,Fotoproteção + tratamento,BR,BR,https://mantecorpskincare.com.br,pending_review
+17,P1,Natura,https://natura.com.br,Biodiversidade + P&D brasileiro,BR,BR,https://natura.com.br,pending_review
+18,P1,O Boticário,https://boticario.com.br,Escala + P&D + comportamento,BR,BR,https://boticario.com.br,pending_review
+19,P1,La Roche-Posay,https://laroche-posay.com.br,Autoridade dermatológica,BR,BR (site),https://laroche-posay.com.br,pending_review
+20,P1,SkinCeuticals,https://skinceuticals.com.br,Ciência premium,BR,BR (site),https://skinceuticals.com.br,pending_review
+21,P1,CeraVe,https://cerave.com.br,Barreira cutânea,BR,BR (site),https://cerave.com.br,pending_review
+22,P1,ISDIN,https://isdin.com/pt-BR,Fotoproteção + formatos,BR,BR (site),https://isdin.com/pt-BR,pending_review
+23,P1,Mustela,https://mustela.com.br,Intergeracional + pele,BR,BR (site),https://mustela.com.br,pending_review
+24,P1,Sol de Janeiro,https://soldejaneiro.com,Body care + desejo,INTL,Intl,https://soldejaneiro.com,pending_review
+25,P1,The Ordinary,https://theordinary.com,Ciência + transparência,INTL,Intl,https://theordinary.com,pending_review
+26,P1,Biossance,https://biossance.com,Biotecnologia,INTL,Intl,https://biossance.com,pending_review
+27,P1,Glow Recipe,https://glowrecipe.com,Ciência + desejo + Geração Z,INTL,Intl,https://glowrecipe.com,pending_review
+28,P1,Laneige,https://laneige.com,Produto-ícone + sensorial,INTL,Intl,https://laneige.com,pending_review
+29,P1,COSRX,https://cosrx.com,K-beauty + problema/solução,INTL,Intl,https://cosrx.com,pending_review
+30,P1,Tocobo,https://tocobo.us,Stick + fotoproteção,INTL,Intl,https://tocobo.us,pending_review
+31,P1,TIRTIR,https://tirtir.global,Maquiagem híbrida + formatos,INTL,Intl,https://tirtir.global,pending_review
+32,P1,Medicube,https://medicube.us,Dispositivo + skincare + tecnologia,INTL,Intl,https://medicube.us,pending_review
+33,P1,Anua,https://anua.global,Social commerce + K-beauty,INTL,Intl,https://anua.global,pending_review
+34,P1,Shiseido,https://shiseido.com,P&D japonês,INTL,Intl,https://shiseido.com,pending_review
+35,P1,Bioré,https://biore.com,Fotoproteção japonesa,INTL,Intl,https://biore.com,pending_review
+36,P1,Paula's Choice,https://paulaschoice.com,Ciência + educação,INTL,Intl,https://paulaschoice.com,pending_review
+37,P1,Embryolisse,https://us.embryolisse.com,Multifuncionalidade,INTL,Intl,https://us.embryolisse.com,pending_review
+38,P1,Summer Fridays,https://summerfridays.com,Produto viral + skincare,INTL,Intl,https://summerfridays.com,pending_review
+39,P1,Rhode,https://rhodeskin.com,Creator + skincare + desejo,INTL,Intl,https://rhodeskin.com,pending_review
+40,P1,Rare Beauty,https://rarebeauty.com,Comunidade + inclusão,INTL,Intl,https://rarebeauty.com,pending_review
+41,P1,Fenty Beauty,https://fentybeauty.com,Inclusão + inovação,INTL,Intl,https://fentybeauty.com,pending_review
+42,P1,Nudestix,https://nudestix.com,Stick + multifuncionalidade,INTL,Intl,https://nudestix.com,pending_review
+43,P1,e.l.f. Cosmetics,https://elfcosmetics.com,Velocidade + social listening,INTL,Intl,https://elfcosmetics.com,pending_review
+44,P1,Milk Makeup,https://milkmakeup.com,Stick + portabilidade,INTL,Intl,https://milkmakeup.com,pending_review
+45,P1,Supergoop!,https://supergoop.com,Fotoproteção + novos formatos,INTL,Intl,https://supergoop.com,pending_review
+46,P1,Vacation,https://vacation.inc,Solar + desejo + formatos incomuns,INTL,Intl,https://vacation.inc,pending_review
+47,P2,Dermage,https://dermage.com.br,Dermocosméticos + maquiagem,BR,BR,https://dermage.com.br,pending_review
+48,P2,Profuse,https://profuse.com.br,Dermatologia,BR,BR,https://profuse.com.br,pending_review
+49,P2,Ada Tina,https://adatina.com,Fotoproteção + manchas,BR,BR (site),https://adatina.com,pending_review
+50,P2,Biomarine,https://biomarine.com.br,Dermocosméticos,BR,BR,https://biomarine.com.br,pending_review
+51,P2,Under Skin,https://underskin.com.br,Skincare premium,BR,BR,https://underskin.com.br,pending_review
+52,P2,TheraSkin,https://theraskin.com.br,Dermatologia,BR,BR,https://theraskin.com.br,pending_review
+53,P2,Vita Derm,https://vitaderm.com.br,Estética profissional,BR,BR,https://vitaderm.com.br,pending_review
+54,P2,Bel Col,https://belcol.com.br,Dermocosmético profissional,BR,BR,https://belcol.com.br,pending_review
+55,P2,Buona Vita,https://buonavita.com.br,Estética corporal,BR,BR,https://buonavita.com.br,pending_review
+56,P2,Tulípia Cosméticos,https://tulipia.com.br,Estética profissional,BR,BR,https://tulipia.com.br,pending_review
+57,P2,Adélia Mendonça,https://adeliamendonca.com.br,Dermocosméticos,BR,BR,https://adeliamendonca.com.br,pending_review
+58,P2,Bioart,https://bioart.com.br,Biocosméticos,BR,BR,https://bioart.com.br,pending_review
+59,P2,Feito Brasil,https://feitobrasil.com,Brasilidade + sensorial,BR,BR,https://feitobrasil.com,pending_review
+60,P2,Skelt,https://skelt.com.br,Corpo + autobronzeamento,BR,BR,https://skelt.com.br,pending_review
+61,P2,Mari Maria Makeup,https://marimariamakeup.com,Creator brand,BR,BR,https://marimariamakeup.com,pending_review
+62,P2,Eudora,https://eudora.com.br,Beleza + skincare,BR,BR,https://eudora.com.br,pending_review
+63,P2,"Quem Disse, Berenice?",https://quemdisseberenice.com.br,Maquiagem + comportamento,BR,BR,https://quemdisseberenice.com.br,pending_review
+64,P2,Vult,https://vult.com.br,Mercado de massa,BR,BR,https://vult.com.br,pending_review
+65,P2,Avon,https://avon.com.br,Mercado de massa,BR,BR (site),https://avon.com.br,pending_review
+66,P2,NIVEA,https://nivea.com.br,Corpo + solar,BR,BR (site),https://nivea.com.br,pending_review
+67,P2,Neutrogena,https://neutrogena.com.br,Skincare massivo,BR,BR (site),https://neutrogena.com.br,pending_review
+68,P2,Garnier,https://garnier.com.br,Tendências em escala,BR,BR (site),https://garnier.com.br,pending_review
+69,P2,L'Oréal Paris,https://loreal-paris.com.br,Escala + inovação,BR,BR (site),https://loreal-paris.com.br,pending_review
+70,P2,Vichy,https://vichy.com.br,Longevidade,BR,BR (site),https://vichy.com.br,pending_review
+71,P2,Bioderma,https://bioderma.com.br,Ecobiologia,BR,BR (site),https://bioderma.com.br,pending_review
+72,P2,Eucerin,https://eucerin.com.br,Manchas,BR,BR (site),https://eucerin.com.br,pending_review
+73,P2,Avène,https://eau-thermale-avene.com.br,Pele sensível,BR,BR (site),https://eau-thermale-avene.com.br,pending_review
+74,P2,Cetaphil,https://cetaphil.com.br,Barreira,BR,BR (site),https://cetaphil.com.br,pending_review
+75,P2,NeoStrata,https://neostrata.com.br,Renovação,BR,BR (site),https://neostrata.com.br,pending_review
+76,P2,Darrow,https://darrow.com.br,Oleosidade,BR,BR,https://darrow.com.br,pending_review
+77,P2,Bepantol Derma,https://bepantol.com.br,Reparação,BR,BR (site),https://bepantol.com.br,pending_review
+78,P2,RoC,https://rocskincare.com,Retinol,INTL,Intl,https://rocskincare.com,pending_review
+79,P2,Fisiogel,https://fisiogel.com.br,Barreira,BR,BR (site),https://fisiogel.com.br,pending_review
+80,P2,Galderma,https://galderma.com/br,Dermatologia + estética,BR,BR (site),https://galderma.com/br,pending_review
+81,P2,Dove,https://dove.com/br,Corpo,BR,BR (site),https://dove.com/br,pending_review
+82,P2,Granado,https://granado.com.br,Tradição brasileira,BR,BR,https://granado.com.br,pending_review
+83,P2,Phebo,https://phebo.com.br,Sensorial,BR,BR,https://phebo.com.br,pending_review
+84,P2,L'Occitane au Brésil,https://br.loccitaneaubresil.com,Biodiversidade,BR,BR (site),https://br.loccitaneaubresil.com,pending_review
+85,P2,Drunk Elephant,https://drunkelephant.com,Skincare premium,INTL,Intl,https://drunkelephant.com,pending_review
+86,P2,Beauty of Joseon,https://beautyofjoseon.com,K-beauty,INTL,Intl,https://beautyofjoseon.com,pending_review
+87,P2,SKIN1004,https://skin1004.com,Pele sensível,INTL,Intl,https://skin1004.com,pending_review
+88,P2,Round Lab,https://roundlab.com,Barreira,INTL,Intl,https://roundlab.com,pending_review
+89,P2,Sulwhasoo,https://us.sulwhasoo.com,Ciência + luxo,INTL,Intl,https://us.sulwhasoo.com,pending_review
+90,P2,Hada Labo,https://hadalabo.com,Hidratação,INTL,Intl,https://hadalabo.com,pending_review
+91,P2,Tatcha,https://tatcha.com,Ritual,INTL,Intl,https://tatcha.com,pending_review
+92,P2,Dermalogica,https://dermalogica.com,Profissional,INTL,Intl,https://dermalogica.com,pending_review
+93,P2,Murad,https://murad.com,Dermatologia + bem-estar,INTL,Intl,https://murad.com,pending_review
+94,P2,Clinique,https://clinique.com,Skincare + maquiagem,INTL,Intl,https://clinique.com,pending_review
+95,P2,Estée Lauder,https://esteelauder.com,Ciência premium,INTL,Intl,https://esteelauder.com,pending_review
+96,P2,Lancôme,https://lancome.com.br,Ciência + luxo,BR,BR (site),https://lancome.com.br,pending_review
+97,P2,Clarins,https://clarins.com.br,Botânicos + corpo,BR,BR (site),https://clarins.com.br,pending_review
+98,P2,Caudalie,https://caudalie.com,Natural + ciência,INTL,Intl,https://caudalie.com,pending_review
+99,P2,Kiehl's,https://kiehls.com,Ingredientes,INTL,Intl,https://kiehls.com,pending_review
+100,P2,Fresh,https://fresh.com,Sensorialidade,INTL,Intl,https://fresh.com,pending_review
+101,P2,Youth To The People,https://youthtothepeople.com,Público jovem,INTL,Intl,https://youthtothepeople.com,pending_review
+102,P2,Fenty Skin,https://fentybeauty.com,Skincare + multifuncionalidade,INTL,Intl,https://fentybeauty.com,pending_review

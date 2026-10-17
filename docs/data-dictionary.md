@@ -13,6 +13,7 @@ Migrations aplicadas:
 - `20261016120600_core_consumer.sql`
 - `20261016120700_core_market.sql`
 - `20261016120800_security.sql`
+- `20261017120000_source_review.sql`
 
 ## Convenções
 
@@ -277,7 +278,7 @@ Cadastro de fontes de coleta (camada 1). Uma fonte pode servir a várias marcas 
 | `type` | text | não |  | official_site \| ecommerce \| marketplace \| social_api \| forum \| trends \| scientific \| regulatory \| market_data. |
 | `name` | text | não |  |  |
 | `base_url` | text | não |  |  |
-| `access_method` | text | não | `'manual'::text` | api \| licensed \| crawler \| browser \| manual \| blocked. "blocked" registra fonte inviável após revisão F0-07 (SPEC §18). |
+| `access_method` | text | não | `'pending_review'::text` | api \| licensed \| crawler \| browser \| manual \| blocked \| pending_review. pending_review = cadastrada sem revisão F0-07. |
 | `ecommerce_platform` | text | sim |  | Plataforma identificada por fingerprint (VTEX, Shopify, Nuvemshop, Magento...) para reaproveitar parsers (§5.2). |
 | `tos_reviewed_at` | timestamp with time zone | sim |  | Data da revisão de termos de uso/robots.txt (F0-07). NULL = não revisada; fonte não pode ser ativada. |
 | `tos_review_notes` | text | sim |  |  |
@@ -287,14 +288,23 @@ Cadastro de fontes de coleta (camada 1). Uma fonte pode servir a várias marcas 
 | `notes` | text | sim |  |  |
 | `created_at` | timestamp with time zone | não | `now()` | Data/hora de criação do registro. |
 | `updated_at` | timestamp with time zone | não | `now()` | Data/hora da última alteração (trigger ops.set_updated_at). |
+| `tos_url` | text | sim |  | URL dos termos de uso analisados na revisão F0-07. |
+| `tos_reviewed_by` | text | sim |  | Responsável pela revisão de termos (obrigatório quando tos_reviewed_at preenchido). |
+| `robots_checked_at` | timestamp with time zone | sim |  | Data da última leitura do robots.txt na revisão. |
+| `robots_raw_document_id` | uuid | sim |  | FK → `raw.raw_document`. Cópia do robots.txt lido na revisão (raw.raw_document), para auditoria (G-02). |
+| `sitemap_urls` | text[] | não | `'{}'::text[]` | Sitemaps declarados no robots.txt ou localizados na revisão (§5.2). |
+| `review_status` | text | não | `'pending'::text` | pending \| preliminary (análise automatizada, sem aprovação) \| approved (aprovada por Iago) \| rejected. Ativação exige approved. |
 
 <details><summary>Constraints</summary>
 
-- **CHECK** `source_access_method_check`: `CHECK ((access_method = ANY (ARRAY['api'::text, 'licensed'::text, 'crawler'::text, 'browser'::text, 'manual'::text, 'blocked'::text])))`
-- **CHECK** `source_active_compliance_ck`: `CHECK (((NOT active) OR ((tos_reviewed_at IS NOT NULL) AND (access_method <> 'blocked'::text) AND ((access_method <> ALL (ARRAY['crawler'::text, 'browser'::text])) OR (robots_allowed IS TRUE)))))`
+- **CHECK** `source_access_method_check`: `CHECK ((access_method = ANY (ARRAY['api'::text, 'licensed'::text, 'crawler'::text, 'browser'::text, 'manual'::text, 'blocked'::text, 'pending_review'::text])))`
+- **CHECK** `source_active_compliance_ck`: `CHECK (((NOT active) OR ((tos_reviewed_at IS NOT NULL) AND (review_status = 'approved'::text) AND (access_method <> ALL (ARRAY['blocked'::text, 'pending_review'::text])) AND ((access_method <> ALL (ARRAY['crawler'::text, 'browser'::text])) OR (robots_allowed IS TRUE)))))`
 - **CHECK** `source_rate_limit_rps_check`: `CHECK ((rate_limit_rps > (0)::numeric))`
+- **CHECK** `source_review_status_check`: `CHECK ((review_status = ANY (ARRAY['pending'::text, 'preliminary'::text, 'approved'::text, 'rejected'::text])))`
 - **CHECK** `source_social_method_ck`: `CHECK (((type <> 'social_api'::text) OR (access_method = ANY (ARRAY['api'::text, 'licensed'::text, 'manual'::text, 'blocked'::text]))))`
+- **CHECK** `source_tos_review_ck`: `CHECK (((tos_reviewed_at IS NULL) OR (tos_reviewed_by IS NOT NULL)))`
 - **CHECK** `source_type_check`: `CHECK ((type = ANY (ARRAY['official_site'::text, 'ecommerce'::text, 'marketplace'::text, 'social_api'::text, 'forum'::text, 'trends'::text, 'scientific'::text, 'regulatory'::text, 'market_data'::text])))`
+- **FK** `source_robots_raw_document_id_fkey`: `FOREIGN KEY (robots_raw_document_id) REFERENCES raw.raw_document(id)`
 - **PK** `source_pkey`: `PRIMARY KEY (id)`
 - **UNIQUE** `source_base_url_key`: `UNIQUE (base_url)`
 
@@ -443,6 +453,7 @@ Marca monitorada. Atributos extraídos/inferidos seguem o padrão rastreável (�
 | `value_proposition` **[R]** | text | sim |  | Proposta de valor declarada. |
 | `declared_differentials` **[R]** | text[] | sim |  | Diferenciais declarados pela marca (texto da fonte). |
 | `approx_sku_count` **[R]** | integer | sim |  | Quantidade aproximada de SKUs observados no site oficial. |
+| `master_list_no` | smallint | sim |  | Número da marca na lista-mãe (SPEC §18). NULL para marcas incluídas depois. |
 
 <details><summary>Constraints</summary>
 
@@ -450,9 +461,11 @@ Marca monitorada. Atributos extraídos/inferidos seguem o padrão rastreável (�
 - **CHECK** `brand_declared_audience_declared_ck`: `CHECK ((declared_audience_is_inferred IS DISTINCT FROM true))`
 - **CHECK** `brand_founded_year_check`: `CHECK (((founded_year >= 1800) AND (founded_year <= 2100)))`
 - **CHECK** `brand_inferred_audience_inferred_ck`: `CHECK ((inferred_audience_is_inferred IS DISTINCT FROM false))`
+- **CHECK** `brand_master_list_no_check`: `CHECK ((master_list_no > 0))`
 - **CHECK** `brand_priority_level_check`: `CHECK ((priority_level = ANY (ARRAY['P1-A'::text, 'P1'::text, 'P2'::text])))`
 - **CHECK** `brand_site_region_check`: `CHECK ((site_region = ANY (ARRAY['BR'::text, 'INTL'::text])))`
 - **PK** `brand_pkey`: `PRIMARY KEY (id)`
+- **UNIQUE** `brand_master_list_no_key`: `UNIQUE (master_list_no)`
 - **UNIQUE** `brand_name_key`: `UNIQUE (name)`
 
 </details>

@@ -246,6 +246,8 @@ Registradas a partir das lacunas levantadas em F0-03/F0-04 e **validadas por Iag
 | DC-17 | Agendamento | `pg_cron` habilitado para enfileirar; nenhum job criado até o worker existir. GitHub Actions não executa coleta (ver levantamento DEC-10). |
 | DC-18 | Taxonomias F0-03 | v1.0 vigente (categoria, subcategoria, formato, benefício, voz do consumidor, frases-sinal, tendência). |
 | DC-19 | Categoria piloto do Módulo C (F1-15) | Proteção solar facial × canal farmácia. Aprovada em 17/10/2026. |
+| DC-20 | Fenty Beauty × Fenty Skin (§18) | Uma `ops.source` (fentybeauty.com) vinculada às duas marcas via `core.brand_source`. Aprovada em 17/10/2026. |
+| DC-21 | Estado inicial das fontes | `access_method = pending_review`, `review_status = pending`, inativas até aprovação F0-07 (`review_status = approved`). |
 
 ---
 
