@@ -14,6 +14,7 @@ Migrations aplicadas:
 - `20261016120700_core_market.sql`
 - `20261016120800_security.sql`
 - `20261017120000_source_review.sql`
+- `20261017130000_function_search_path.sql`
 
 ## Convenções
 
