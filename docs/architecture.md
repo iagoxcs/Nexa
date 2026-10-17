@@ -250,7 +250,7 @@ Registradas a partir das lacunas levantadas em F0-03/F0-04 e **validadas por Iag
 | DC-21 | Estado inicial das fontes | `access_method = pending_review`, `review_status = pending`, inativas até aprovação F0-07 (`review_status = approved`). |
 | DC-22 | Primeiro adapter do `llm_gateway` (F0-08) | Anthropic (SDK `anthropic` 1.x). Rotas provisórias até o benchmark DEC-06: extração/classificação `claude-haiku-5-5` (effort low); Conselho `claude-opus-5-5` (effort high, fallback no servidor). `critical_review` sem rota até existir adapter de segundo provedor. |
 | DC-23 | Retenção, backup e acesso (F0-09) | `docs/data-governance.md` v1.0, decisões D1–D6 aprovadas em 17/10/2026 (Thaís sem acesso a `finance`). |
-| DC-24 | Projeto Supabase | Projeto `NEXA` (ref `jmuljtnnfrpmdtawpwbd`, PostgreSQL 17, região `us-east-1`) criado por Iago em 17/10/2026. Migrations até `20261017130000` aplicadas; versões em `supabase_migrations.schema_migrations` alinhadas aos nomes dos arquivos. Seeds ainda não carregados. |
+| DC-24 | Projeto Supabase | Projeto `NEXA` (ref `jmuljtnnfrpmdtawpwbd`, PostgreSQL 17, região `us-east-1`), mantido nessa região por decisão de Iago em 17/10/2026. Migrations até `20261017130000` aplicadas; versões em `supabase_migrations.schema_migrations` alinhadas aos nomes dos arquivos. Organização no plano Free (limite de 2 projetos ativos). Projeto de teste `NEXA LAB` (sa-east-1, vazio) criado e pausado no mesmo dia, aguardando exclusão. |
 
 ---
 
@@ -262,7 +262,7 @@ Registradas a partir das lacunas levantadas em F0-03/F0-04 e **validadas por Iag
 | P-02 | Cotação do recorte IQVIA para o piloto F1-15 | DEC-09 + Q-18 |
 | P-03 | Candidatura à API alpha do Google Trends | DEC-08 |
 | P-04 | Hospedagem do `apps/web` (Next.js) | Não coberta por DEC-01 a DEC-10 |
-| P-05 | Região do Supabase × worker | Projeto criado em `us-east-1`; worker aprovado em `southamerica-east1` (DEC-10). Decidir: manter as regiões (latência entre continentes em cada consulta do worker) ou mover o worker para `us-east1` / recriar o projeto em `sa-east-1` |
+| P-05 | Região do Supabase × worker | Banco mantido em `us-east-1` (DC-24); worker aprovado em `southamerica-east1` (DEC-10). Reavaliar a região do worker no F1 (latência entre continentes) |
 | P-06 | Perfis de usuário e policies RLS | Q-19 |
 | P-07 | Orçamento mensal de infraestrutura, APIs e modelos | Q-18 |
 | P-08 | Inventário da base de conhecimento do Conselho | Q-11 |
