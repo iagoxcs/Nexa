@@ -202,7 +202,7 @@ def render(cat: dict, migrations: list[str]) -> str:
     w("")
 
     tax = cat["taxonomies"]
-    w("## Anexo — Taxonomias semeadas (F0-03, proposta v0.1)\n")
+    w("## Anexo — Taxonomias semeadas (F0-03, v1.0 validada em 16/10/2026)\n")
     w("### Categoria e subcategoria\n")
     w("| Categoria | Código subcategoria | Nome | Descrição |")
     w("|---|---|---|---|")

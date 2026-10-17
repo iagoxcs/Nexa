@@ -2,6 +2,8 @@
 
 Especificação completa: `docs/SPEC.md`. Ler integralmente antes de qualquer tarefa.
 
+Arquitetura e decisões complementares: `docs/architecture.md`.
+
 Dicionário de dados: `docs/data-dictionary.md` (gerado por `scripts/gen_data_dictionary.py`; não editar à mão).
 
 ## 0. Regras permanentes para o Claude Code

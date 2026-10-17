@@ -1,5 +1,5 @@
 -- =============================================================================
--- NEXA LAB — F0-03 — Taxonomia: formato (PROPOSTA v0.1)
+-- NEXA LAB — F0-03 — Taxonomia: formato (v1.0 — validada por Iago em 16/10/2026)
 -- Formato = forma física/veículo do produto. Embalagem e mecanismo de
 -- dispensação (pump, airless, roll-on, conta-gotas) ficam em core.packaging.
 -- Exceção deliberada: stick e bala são forma física (anidro moldado) e também

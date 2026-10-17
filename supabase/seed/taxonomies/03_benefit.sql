@@ -1,5 +1,5 @@
 -- =============================================================================
--- NEXA LAB — F0-03 — Taxonomia: benefício (PROPOSTA v0.1)
+-- NEXA LAB — F0-03 — Taxonomia: benefício (v1.0 — validada por Iago em 16/10/2026)
 -- Benefício normalizado para filtro/agregação. A alegação literal fica em
 -- core.claim; métricas (FPS, % de redução) ficam em product.spf_declared e
 -- claim.metric_value. Um produto tem 1 benefício principal e N secundários.
