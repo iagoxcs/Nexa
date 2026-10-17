@@ -264,3 +264,4 @@ Registradas a partir das lacunas levantadas em F0-03/F0-04 e **validadas por Iag
 | P-06 | Perfis de usuário e policies RLS | Q-19 |
 | P-07 | Orçamento mensal de infraestrutura, APIs e modelos | Q-18 |
 | P-08 | Inventário da base de conhecimento do Conselho | Q-11 |
+| P-09 | Decisões D1–D6 da política de retenção, backup e acesso | `docs/data-governance.md` §7 |

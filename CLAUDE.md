@@ -4,6 +4,8 @@ Especificação completa: `docs/SPEC.md`. Ler integralmente antes de qualquer ta
 
 Arquitetura e decisões complementares: `docs/architecture.md`.
 
+Retenção, backup e acesso: `docs/data-governance.md` (respeitar a retenção por fonte antes de armazenar dados de consumidor).
+
 Dicionário de dados: `docs/data-dictionary.md` (gerado por `scripts/gen_data_dictionary.py`; não editar à mão).
 
 ## 0. Regras permanentes para o Claude Code
